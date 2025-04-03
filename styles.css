@@ -1,0 +1,507 @@
+:root {
+    --clr-white: #fff;
+    --clr-black: #0f0c29;
+    --clr-grey: #6d44b8;
+    --clr-purple: #302b63;
+    --clr-scarlet: #be0119;
+    --clr-background: url("fancy-cushion.webp");
+    --clr-highlight: #ffd700;
+    --clr-page-title: #fff;
+    --clr-content: #fff;
+    --thickness: 1.5;
+    --clr-light: #fff;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    height: -webkit-fill-available;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    margin: 0 0 0 0;
+    padding: 20px;
+    padding-top: 150px;
+    font-family: "Roboto", sans-serif;
+    background-image: var(--clr-background);
+    background-size: contain;
+    background-repeat: repeat;
+    background-position: center center;
+}
+a {
+    text-decoration: none;
+    display: block;
+}
+h1 {
+    color: var(--clr-page-title);
+    font-weight: 900;
+}
+/*
+*   Nav details start
+*/
+header {
+    position: fixed;
+    top: 0;
+    z-index: 50;
+    height: 2.75rem;
+    width: 100%;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(2rem);
+}
+#nav-container {
+    max-width: 98rem;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+}
+.nav-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 1rem 0 0;
+}
+.nav-link {
+    font-size: 1.4rem;
+    color: var(--clr-white);
+    margin: 0.5rem;
+    transition: opacity 0.5s;
+    display: block;
+}
+.nav-link:hover {
+    opacity: 0.7;
+}
+.nav-link-logo {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    color: #ffd700;
+}
+.nav-link-profile {
+    width: 1rem;
+    height: 1rem;
+    /*border-radius: 50%;*/
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    /*background: url('../img/threelines.webp') center no-repeat;*/
+}
+.dropdown-menu {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    background: var(--clr-black);
+    min-width: 150px;
+    margin-top: 5px;
+    transition: all 0.4s;
+    right: 10px;
+    color: var(--clr-white);
+    list-style: none;
+}
+.dropdown-menu > a {
+    color: white;
+}
+.dropdown:hover > .dropdown-menu {
+    visibility: visible;
+    opacity: 1; transition:
+    all 0.3s ease-in-out;
+    color: var(--clr-grey);
+}
+.dropdown > .nav-link::after {
+    display: inline-block;
+    margin-left: .255em;
+    vertical-align: middle;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3m solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    cursor: pointer;
+    color: var(--clr-white);
+}
+/*
+*   Nav details end
+*/
+/*
+*   Exercise row styling start
+*/
+.exercise-row {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+.exercise-container {
+    margin-top: 50px;
+    position: relative;
+    width: 220px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    color: var(--clr-content);
+}
+.set-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    margin-top: 5px;
+}
+.options-button {
+    cursor: pointer;
+    background: lightgray;
+    border: none;
+    padding: 2px 0;
+    margin: 10px 5px 10px 5px;
+}
+.remove-set {
+    cursor: pointer;
+    background: red;
+    color: white;
+    border: none;
+    margin: 10px 5px 10px 5px;
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+}
+.remove-set span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.add-set {
+    width: 200px;
+    padding: 10px;
+    text-align: center;
+    background: #ddd;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--clr-content);
+    background: rgba(4, 171, 2, 0.46);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(4, 171, 2, 0.3);
+}
+.add-exercise {
+    width: 30px;
+    padding: 10px;
+    text-align: center;
+    background: #ddd;
+    cursor: pointer;
+    color: var(--clr-white);
+    background: rgba(9, 6, 247, 0.46);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(9, 6, 247, 0.3);
+}
+.container-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+/*
+*   Exercise row styling end
+*/
+/*
+*   New exercise button styling
+*/
+.btn-42,
+.btn-42 *,
+.btn-42 :after,
+.btn-42 :before,
+.btn-42:after,
+.btn-42:before {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+.btn-42 {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button;
+  background-color: green;
+  background-image: none;
+  color: var(--clr-light);
+  cursor: pointer;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-size: 100%;
+  line-height: 1.5;
+  margin: 20px;
+  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  padding: 0;
+}
+.btn-42:disabled {
+  cursor: default;
+}
+.btn-42:-moz-focusring {
+  outline: auto;
+}
+.btn-42 svg {
+  display: block;
+  vertical-align: middle;
+}
+.btn-42 [hidden] {
+  display: none;
+}
+.btn-42 {
+  border-radius: 999px;
+  box-sizing: border-box;
+  display: block;
+  font-weight: 900;
+  -webkit-mask-image: none;
+  padding: 1rem 3rem;
+  position: relative;
+  text-transform: uppercase;
+}
+.btn-42 span {
+  mix-blend-mode: difference;
+}
+.btn-42:before {
+  --thickness: 4px;
+  border: var(--thickness) solid var(--clr-light);
+  border-radius: 999px;
+  content: "";
+  inset: calc(var(--thickness) * -1);
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transform: scale(1.3);
+  transition: transform 0.2s, opacity 0.2s;
+}
+.btn-42:hover:before {
+  opacity: 1;
+  transform: scale(1);
+}
+.btn-42:hover {
+  background-color: transparent;
+}
+
+/*
+*   New exercise button styling
+*/
+/*
+*   Top Info Details start
+*/
+.top-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+
+.top-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+
+.bottom-info {
+    display: flex;
+}
+
+/*
+*   Top Info Details end
+*/
+/*
+*   Start/Finish buttons start
+*/
+.btn-42-2,
+.btn-42-2 *,
+.btn-42-2 :after,
+.btn-42-2 :before,
+.btn-42-2:after,
+.btn-42-2:before {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+.btn-42-2 {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button;
+  background-color: red;
+  background-image: none;
+  color: var(--clr-light);
+  cursor: pointer;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-size: 100%;
+  line-height: 1.5;
+  margin: 20px;
+  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  padding: 0;
+}
+.btn-42-2:disabled {
+  cursor: default;
+}
+.btn-42-2:-moz-focusring {
+  outline: auto;
+}
+.btn-42-2 svg {
+  display: block;
+  vertical-align: middle;
+}
+.btn-42-2 [hidden] {
+  display: none;
+}
+.btn-42-2 {
+  border-radius: 999px;
+  box-sizing: border-box;
+  display: block;
+  font-weight: 900;
+  -webkit-mask-image: none;
+  padding: 1rem 3rem;
+  position: relative;
+  text-transform: uppercase;
+}
+.btn-42-2 span {
+  mix-blend-mode: difference;
+}
+.btn-42-2:before {
+  --thickness: 4px;
+  border: var(--thickness) solid var(--clr-light);
+  border-radius: 999px;
+  content: "";
+  inset: calc(var(--thickness) * -1);
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transform: scale(1.3);
+  transition: transform 0.2s, opacity 0.2s;
+}
+.btn-42-2:hover:before {
+  opacity: 1;
+  transform: scale(1);
+}
+.btn-42-2:hover {
+  background-color: transparent;
+}
+#end {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#save {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+/*
+*   Start/Finish buttons end
+*/
+/*
+*   Input styling start
+*/
+.form-item {
+    height: 30px;
+    margin: 10px 5px 10px 5px;
+    position: relative;
+}
+.form-item input {
+    display: block;
+    background: white;
+    height: 30px;
+    border: solid 1px #ccc;
+    transition: all 0.3s ease;
+    padding: 0 0 0 5px;
+    color: var(--clr-black);
+    /* font-size: 16px; */
+}
+.form-item input:focus {
+    border-color: #ffd700;
+}
+.form-item label {
+    position: absolute;
+    cursor: text;
+    z-index: 10;
+    top: 8px;
+    left: 0;
+    font-size: 15px;
+    font-weight: bold;
+    background: transparent;
+    padding: 0 10px;
+    color: gray;
+    transition: all 0.3s ease;
+}
+.form-item input:focus + label, .form-item input:valid + label {
+    font-size: 12px;
+    top: -18px;
+}
+.form-item input:focus + label {
+    color: var(--clr-highlight);
+}
+.exercise-input {
+    margin-top: 20px;
+    font-size: 12px;
+}
+.workout-input {
+    width: 250px;
+    font-size: 16px;
+}
+.workout-input > label {
+    color: var(--clr-black);
+}
+.set-input {
+    width: 50px;
+    font-size: 12px;
+}
+.rep-input {
+    width: 30px;
+    font-size: 12px;
+}
+/*
+*   Input styling end
+*/
+/*
+*   Media queries start
+*/
+@media screen and (max-width: 535px) {
+    .btn {
+        width: 80px;
+    }
+    .workout-input {
+        width: 200px;
+    }
+    .exercise-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .exercise-container, .add-set, .add-exercise {
+        width: 100%;
+        max-width: 300px;
+    }
+    .set-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        /* flex-direction: column;
+        align-items: flex-start;*/
+        width: 100%;
+    }
+    .form-item {
+        width: 30%;
+    }
+}
