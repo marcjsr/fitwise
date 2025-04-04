@@ -31,28 +31,29 @@
         </div>
     </header>
     <h1>Workout Log</h1>
-    <div class='top-info'>
-        <div class="top-input">
-            <div class="form-item">
-                <input type="text" name="workout_name" id="workout_name"
-                    class="workout-input" required="">
-                <label for="workout_name">Workout Name</label>
+    <form id="workoutform">
+        <div class='top-info'>
+            <div class="top-input">
+                <div class="form-item">
+                    <input type="text" name="workout_name" id="workout_name"
+                        class="workout-input" required="">
+                    <label for="workout_name">Workout Name</label>
+                </div>
+                <div class="form-item">
+                    <input type="email" name="user_email" id="user_email"
+                        class="workout-input" required="">
+                    <label for="user_email">Email</label>
+                </div>
             </div>
-            <div class="form-item">
-                <input type="email" name="user_email" id="user_email"
-                    class="workout-input" required="">
-                <label for="user_email">Email</label>
-            </div>
+            <button class="btn-42-2" id="start">Start</button>
         </div>
-        <button class="btn-42-2" id="start">Start</button>
-    </div>
-    <div class="container-wrapper"></div>
-        <button class="btn-42">New Exercise</button>
-    <div class="bottom-info">
-        <!--<button class="btn-42-2" id="end">Finish</button>-->
-        <button class="btn-42-2" id="save">Export</button>
-    </div>
-
+        <div class="container-wrapper"></div>
+            <button class="btn-42">New Exercise</button>
+        <div class="bottom-info">
+            <!--<button class="btn-42-2" id="end">Finish</button>-->
+            <button class="btn-42-2" id="save">Export</button>
+        </div>
+    </form>
     <script>
 
     </script>
