@@ -138,11 +138,22 @@ function createAddExerciseButton(row) {
     addExercise.appendChild(addExerciseIcon);
 }
 
-const themeToggler = document.querySelector('.theme-toggler');
-themeToggler.addEventListener('click', () => {
+function saveToFile() {
+  const form = document.getElementById('workoutForm');
+  const inputs = form.querySelectorAll('input');
 
-    document.body.classList.toggle('dark-theme-variables')
+  let data = 'Workout Data:\n';
+  inputs.forEach(input => {
+    data += `${input.name}: ${input.value}\n`;
+  });
 
-    themeToggler.querySelector('span:nth-child(1)').classList.toggle('active')
-    themeToggler.querySelector('span:nth-child(2)').classList.toggle('active')
-});
+  const blob = new Blob([data], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'workout-log.txt';
+  a.click();
+
+  URL.revokeObjectURL(url); // Clean up
+}
